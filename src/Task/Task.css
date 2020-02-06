@@ -1,0 +1,18 @@
+.Task{
+    border: 1px solid lightgray;
+    border-top-width: 0px;
+    padding: 6px 8px;
+    display: flex;
+}
+
+.Task:first-child{
+    border-top-width: 1px;
+}
+
+.Task__text{
+    margin: 0 0 0 10px;
+}
+
+.Task--completed{
+    text-decoration: line-through;
+}
