@@ -13,13 +13,14 @@ function TextInput (props){
     }
 
     return (<div className="TextInput">
-        {props.showButton && <button></button>}
+        {props.showButton && <button onClick={props.onToggleAll}></button>}
         <input onKeyDown={intermediate} />
     </div>);
 }
 
 TextInput.propTypes = {
     onEnter: PropTypes.func,
+    onToggleAll: PropTypes.func,
     showButton: PropTypes.bool,
 }
 

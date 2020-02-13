@@ -32,11 +32,26 @@ function App() {
     setTasks(copy);
   }
 
+  const handleToggleAll = () => {
+    
+    const result = tasks.every((elem) => {
+      return elem.completed;
+    });
+    console.log('handleToggleAll', result);
+
+    const copy = tasks.slice();
+    copy.forEach((elem, index) => {
+      elem.completed = !result;
+    });
+    setTasks(copy);
+  }
+
   return (<div>
     <h1>todo app</h1>
     
     <TextInput
       onEnter={handleAdd}
+      onToggleAll={handleToggleAll}
       showButton={tasks.length > 0} />
 
     <div>
