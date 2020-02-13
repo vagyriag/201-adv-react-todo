@@ -13,9 +13,10 @@ function Task (props) {
         props.onToggle(props.index, !props.completed);
     }
 
-    return (<div className={className}>
-        <input type="checkbox" checked={props.completed}
-            onClick={handleToggle} />
+    return (<div className={className} onClick={handleToggle}>
+        <input type="checkbox"
+            checked={props.completed}
+            onChange={handleToggle} />
         <p className="Task__text">
             {props.text}
         </p>
