@@ -4,18 +4,7 @@ import TextInput from '../TextInput/TextInput';
 
 function App() {
 
-  const [ tasks, setTasks ] = React.useState([
-    {
-      text: 'Tarea uno',
-      completed: true,
-      id: 10,
-    },
-    {
-      text: 'Segunda tarea',
-      completed: false,
-      id: 11,
-    }
-  ]);
+  const [ tasks, setTasks ] = React.useState([]);
 
   const updateTask = (index, newCompleted) => {
     console.log(index, newCompleted);
@@ -25,10 +14,17 @@ function App() {
   }
 
   const handleAdd = (newText) => {
+    let newId;
+    if(tasks.length === 0){
+      newId = 0;
+    } else {
+      newId = tasks[tasks.length - 1].id + 1;
+    }
+    //  tasks.length === 0 ? 0 : tasks[tasks.length - 1].id + 1
     const newObj = {
       text: newText,
       completed: false,
-      id: tasks[tasks.length - 1].id + 1,
+      id: newId,
     };
     const copy = tasks.slice();
     copy.push(newObj);
@@ -40,7 +36,8 @@ function App() {
     <h1>todo app</h1>
     
     <TextInput
-      onEnter={handleAdd} />
+      onEnter={handleAdd}
+      showButton={tasks.length > 0} />
 
     <div>
       {tasks.map((elem, index) => {

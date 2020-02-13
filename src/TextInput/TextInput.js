@@ -13,13 +13,14 @@ function TextInput (props){
     }
 
     return (<div className="TextInput">
-        <button></button>
+        {props.showButton && <button></button>}
         <input onKeyDown={intermediate} />
     </div>);
 }
 
 TextInput.propTypes = {
     onEnter: PropTypes.func,
+    showButton: PropTypes.bool,
 }
 
 export default TextInput;
