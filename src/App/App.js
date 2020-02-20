@@ -46,8 +46,19 @@ function App() {
     setTasks(copy);
   }
 
+  var activeTasks = 0;
+  tasks.forEach((elem) => {
+    if(!elem.completed) activeTasks++;
+  });
+/*
+  const activeTasksTemp = tasks.filter((elem) => {
+    return !elem.completed;
+  });
+
+  const activeTasksTemp = tasks.filter((elem) => !elem.completed);
+*/
   return (<div>
-    <h1>todo app</h1>
+    <h1>todo app {activeTasks}</h1>
     
     <TextInput
       onEnter={handleAdd}
