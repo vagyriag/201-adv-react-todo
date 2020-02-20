@@ -1,9 +1,12 @@
 import React from 'react';
 import Task from '../Task/Task';
 import TextInput from '../TextInput/TextInput';
+import PropTypes from 'prop-types';
+import CardNumber from '../CardNumber/CardNumber';
 
 function App() {
 
+  
   const [ tasks, setTasks ] = React.useState([]);
 
   const updateTask = (index, newCompleted) => {
@@ -57,8 +60,25 @@ function App() {
 
   const activeTasksTemp = tasks.filter((elem) => !elem.completed);
 */
+
+  const [ cardNumber, setCardNumber ] = React.useState('inicial');
+
+  const handleCardNumberChange = (newText) => {
+    setCardNumber(newText);
+  }
+
+  const handleDelete = () => {
+    setCardNumber('');
+  }
+
   return (<div>
     <h1>todo app {activeTasks}</h1>
+
+    <button onClick={handleDelete}>borrar</button>
+
+    <p>{cardNumber}</p>
+    <CardNumber
+      value={cardNumber} />
     
     <TextInput
       onEnter={handleAdd}
