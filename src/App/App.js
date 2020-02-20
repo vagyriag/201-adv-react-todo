@@ -61,7 +61,7 @@ function App() {
   const activeTasksTemp = tasks.filter((elem) => !elem.completed);
 */
 
-  const [ cardNumber, setCardNumber ] = React.useState('inicial');
+  const [ cardNumber, setCardNumber ] = React.useState('');
 
   const handleCardNumberChange = (newText) => {
     setCardNumber(newText);
@@ -78,6 +78,7 @@ function App() {
 
     <p>{cardNumber}</p>
     <CardNumber
+      onTextChange={handleCardNumberChange}
       value={cardNumber} />
     
     <TextInput
